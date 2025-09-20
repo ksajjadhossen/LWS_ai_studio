@@ -1,10 +1,12 @@
+import { useState } from "react";
 import "./App.css";
+import CreateImage from "./pages/CreateImage/CreateImage";
+import Downloaded from "./pages/Downloaded/Downloaded";
 
 function App() {
+  const [createImage, setCreateImage] = useState(false);
   return (
-    <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <>{createImage ? <CreateImage></CreateImage> : <Downloaded></Downloaded>}</>
   );
 }
 
