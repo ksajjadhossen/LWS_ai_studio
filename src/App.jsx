@@ -4,9 +4,21 @@ import CreateImage from "./pages/CreateImage/CreateImage";
 import Downloaded from "./pages/Downloaded/Downloaded";
 
 function App() {
-  const [createImage, setCreateImage] = useState(false);
+  const [page, setPage] = useState("create");
+
+  function changeRouteByClick(data) {
+    setPage(data);
+  }
+
   return (
-    <>{createImage ? <CreateImage></CreateImage> : <Downloaded></Downloaded>}</>
+    <>
+      {page === "create" && (
+        <CreateImage route={changeRouteByClick}></CreateImage>
+      )}
+      {page === "download" && (
+        <Downloaded route={changeRouteByClick}></Downloaded>
+      )}
+    </>
   );
 }
 
